@@ -1,3 +1,4 @@
+import { values } from 'lodash'
 import { connect } from 'react-redux'
 import { mergeIntoEntitiex } from 'entitiex'
 
@@ -19,7 +20,7 @@ const mapStateToProps = ({
   visibilityFilter
 }) => {
   return {
-    todos: getVisibleTodos(todosById.values(), visibilityFilter)
+    todos: getVisibleTodos(values(todosById), visibilityFilter)
   }
 }
 

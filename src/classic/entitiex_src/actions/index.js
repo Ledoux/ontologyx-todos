@@ -1,6 +1,6 @@
-export const toggleTodo = (id) => {
+export const setVisibilityFilter = (filter) => {
   return {
-    type: 'TOGGLE_TODO',
-    id
+    type: 'SET_VISIBILITY_FILTER',
+    filter
   }
 }
