@@ -1,10 +1,12 @@
 import { combineReducers } from 'redux'
 
-import ENTITIEX from './ENTITIEX'
+import entitiexReducer from './entitiex'
+import filtexReducer from './filtex'
 import visibilityFilter from './visibilityFilter'
 
 const todoApp = combineReducers({
-  ENTITIEX,
+  entitiex: entitiexReducer,
+  filtex: filtexReducer,
   visibilityFilter
 })
 

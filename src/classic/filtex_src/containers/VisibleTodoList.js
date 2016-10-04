@@ -1,25 +1,12 @@
 import { connect } from 'react-redux'
-import { mergeIntoEntitiex } from 'ENTITIEX'
+import { mergeIntoEntitiex } from 'entitiex'
 
+import { getFilteredElements } from '../reducers/filtex'
 import TodoList from '../components/TodoList'
 
-const getVisibleTodos = (todos, filter) => {
-  switch (filter) {
-    case 'SHOW_ALL':
-      return todos
-    case 'SHOW_COMPLETED':
-      return todos.filter(t => t.completed)
-    case 'SHOW_ACTIVE':
-      return todos.filter(t => !t.completed)
-  }
-}
-
-const mapStateToProps = ({
-  ENTITIEX: {todosById},
-  visibilityFilter
-}) => {
+const mapStateToProps = (state) => {
   return {
-    todos: getVisibleTodos(todosById.values(), visibilityFilter)
+    todos: getFilteredElements(state, state.visibilityFilter, 'todos')
   }
 }
 

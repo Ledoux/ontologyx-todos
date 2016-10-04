@@ -1,10 +1,9 @@
-import { mergeIntoEntitiex } from 'ontology'
+import { mergeIntoEntitiex } from 'entitiex'
 import React from 'react'
 import { connect } from 'react-redux'
 
 let AddTodo = ({ dispatch, todosCount }) => {
   let input
-
   return (
     <div>
       <form onSubmit={e => {
@@ -29,7 +28,7 @@ let AddTodo = ({ dispatch, todosCount }) => {
   )
 }
 const mapStateToProps = ({
-  ENTITIEX: {todosById}
+  entitiex: {todosById}
 }) => {
   return {
     todosCount: Object.keys(todosById).length
