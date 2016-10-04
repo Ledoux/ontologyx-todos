@@ -4,8 +4,11 @@
   "private": true,
   "devDependencies": {
     "enzyme": "^2.4.1",
+    "entitiex": "0.0.1",
+    "filtex": "0.0.1",
     "react-addons-test-utils": "^15.3.0",
-    "react-scripts": "^0.6.0"
+    "react-scripts": "^0.6.0",
+    "transactionx": "0.0.1"
   },
   "dependencies": {
     "react": "^15.3.2",
