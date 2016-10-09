@@ -1,4 +1,3 @@
-import { mergeIntoEntitiex } from 'ontology'
 import React from 'react'
 import { connect } from 'react-redux'
 
@@ -12,10 +11,10 @@ let AddTodo = ({ dispatch, todosCount }) => {
         if (!input.value.trim()) {
           return
         }
-        dispatch(mergeIntoEntitiex({
+        dispatch({ type: 'ADD_TODO', entitiex: { patch: {
           todosById: {
             [todosCount++]: { text: input.value }
-          }}))
+          }}}})
         input.value = ''
       }}>
         <input ref={node => {
@@ -29,7 +28,7 @@ let AddTodo = ({ dispatch, todosCount }) => {
   )
 }
 const mapStateToProps = ({
-  ENTITIEX: {todosById}
+  entitiex: {todosById}
 }) => {
   return {
     todosCount: Object.keys(todosById).length

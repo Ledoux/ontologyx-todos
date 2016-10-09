@@ -1,43 +1,46 @@
+import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { mergeIntoEntitiex } from 'ENTITIEX'
 
+import { getFilteredElements } from '../reducers/filtex'
 import TodoList from '../components/TodoList'
 
-const getVisibleTodos = (todos, filter) => {
-  switch (filter) {
-    case 'SHOW_ALL':
-      return todos
-    case 'SHOW_COMPLETED':
-      return todos.filter(t => t.completed)
-    case 'SHOW_ACTIVE':
-      return todos.filter(t => !t.completed)
+class VisibleTodoList extends Component {
+  componentDidMount () {
+    const { dispatch } = this.props
+    dispatch({ type: 'MERGE_TODOS_TRANSACTIONX', transactionx: { patch: {
+      ontologyx: {todos: null}
+    }}})
+    dispatch({
+      type: 'REQUEST_GET_TRANSACTIONX',
+      protocol: 'GET',
+      url: 'http://localhost:5000'
+    })
+  }
+  render () {
+    return <TodoList {...this.props} />
   }
 }
 
-const mapStateToProps = ({
-  ENTITIEX: {todosById},
-  visibilityFilter
-}) => {
+const mapStateToProps = (state) => {
   return {
-    todos: getVisibleTodos(todosById.values(), visibilityFilter)
+    todos: getFilteredElements(state, state.visibilityFilter, 'todos')
   }
 }
 
 const mapDispatchToProps = (dispatch) => {
   return {
+    dispatch,
     onTodoClick: (id, completed) => {
-      dispatch(mergeIntoEntitiex({
+      dispatch({ type: 'TOGGLE_TODO', entitiex: { patch: {
         todosById: {
           [id]: { completed: !completed }
         }
-      }))
+      }}})
     }
   }
 }
 
-const VisibleTodoList = connect(
+export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(TodoList)
-
-export default VisibleTodoList
+)(VisibleTodoList)

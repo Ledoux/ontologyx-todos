@@ -16,11 +16,13 @@
     "transactionx-express": "0.0.1"
   },
   "dependencies": {
+    "cors": "^2.8.1",
     "express": "^4.14.0",
     "react": "^15.3.2",
     "react-dom": "^15.3.2",
     "react-redux": "^4.4.5",
     "redux": "^3.5.2",
+    "redux-saga": "^0.12.0",
     "ttab": "^0.5.0"
   },
   "main": "src/index.js",
@@ -29,12 +31,17 @@
     "console": "babel-node server/utils/consoleDatabase.js --presets es2015,stage-3",
     "eject": "react-scripts eject",
     "kill": "killall -15 mongod",
+    "link": "npm link ../entitiex && npm link ../filtex && npm link ../transactionx-client && npm link transactionx-express",
     "mongo": "mongod --dbpath data/mongodb_data",
-    "prestart": "ttab exec npm run watch && ttab exec npm run serve && ttab exec npm run mongo",
+    "prestart": "ttab exec npm run watch-all && ttab exec npm run serve && ttab exec npm run mongo",
     "reset": "babel-node server/utils/resetDatabase.js --presets es2015,stage-3",
     "start": "react-scripts start",
     "test": "react-scripts test --env=jsdom",
-    "watch": "cd ../transactionx-express && npm run watch",
+    "watch-entitiex": "cd ../entitiex && npm run watch",
+    "watch-filtex": "cd ../filtex && npm run watch",
+    "watch-transactionx-client": "cd ../transactionx-client && npm run watch",
+    "watch-transactionx-express": "cd ../transactionx-express && npm run watch",
+    "watch-all": "ttab npm run watch-entitiex && ttab npm run watch-filtex && ttab npm run watch-transactionx-client && ttab npm run watch-transactionx-express",
     "serve": "nodemon server/index.js --exec babel-node --watch server --watch ../transactionx-express/lib --presets es2015,stage-3"
   }
 }

@@ -1,15 +1,15 @@
-import React from 'react'
-import { render } from 'react-dom'
-import { Provider } from 'react-redux'
-import { createStore } from 'redux'
+import createSagaMiddleware from 'redux-saga'
+
+import rootSaga from './sagas'
 import todoApp from './reducers'
 import App from './components/App'
 
-let store = createStore(todoApp)
+const sagaMiddleware = createSagaMiddleware()
 
-render(
-  <Provider store={store}>
-    <App />
-  </Provider>,
-  document.getElementById('root')
-)
+const app = {
+  rootSaga,
+  sagaMiddleware,
+  todoApp,
+  App
+}
+export default app

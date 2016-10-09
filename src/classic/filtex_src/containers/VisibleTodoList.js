@@ -1,5 +1,4 @@
 import { connect } from 'react-redux'
-import { mergeIntoEntitiex } from 'entitiex'
 
 import { getFilteredElements } from '../reducers/filtex'
 import TodoList from '../components/TodoList'
@@ -13,11 +12,11 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
   return {
     onTodoClick: (id, completed) => {
-      dispatch(mergeIntoEntitiex({
+      dispatch({ type: 'TOGGLE_TODO', entitiex: { patch: {
         todosById: {
           [id]: { completed: !completed }
         }
-      }))
+      }}})
     }
   }
 }

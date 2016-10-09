@@ -4,16 +4,16 @@ import FilterLink from '../containers/FilterLink'
 const Footer = () => (
   <p>
     Show:
-    {" "}
-    <FilterLink filter="ALL">
+    {' '}
+    <FilterLink filter='ALL'>
       All
     </FilterLink>
-    {", "}
-    <FilterLink filter="ACTIVE">
+    {', '}
+    <FilterLink filter='ACTIVE'>
       Active
     </FilterLink>
-    {", "}
-    <FilterLink filter="COMPLETED">
+    {', '}
+    <FilterLink filter='COMPLETED'>
       Completed
     </FilterLink>
   </p>
