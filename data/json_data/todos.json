@@ -1,0 +1,14 @@
+[
+  {
+    "completed": false,
+    "text": "buy some Quinoa"
+  },
+  {
+    "completed": false,
+    "text": "read Marx for good"
+  },
+  {
+    "completed": true,
+    "text": "stop being hipster"
+  }
+]
