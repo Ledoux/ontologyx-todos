@@ -25,7 +25,7 @@ const mapStateToProps = ({
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    onTodoClick: (id, completed) => {
+    onTodoToggleClick: (id, completed) => {
       dispatch(mergeIntoEntitiex({
         todosById: {
           [id]: { completed: !completed }

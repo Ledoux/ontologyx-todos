@@ -11,10 +11,14 @@ let AddTodo = ({ dispatch, todosCount }) => {
         if (!input.value.trim()) {
           return
         }
-        dispatch({ type: 'ADD_TODO', entitiex: { patch: {
-          todosById: {
-            [todosCount++]: { text: input.value }
-          }}}})
+        dispatch({
+          documents: [{ text: input.value }],
+          transactionx: 'POST',
+          databaseName: 'ontologyx',
+          url: 'http://localhost:5000',
+          collectionName: 'todos',
+          type: 'ADD_TODO'
+        })
         input.value = ''
       }}>
         <input ref={node => {
