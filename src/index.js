@@ -1,35 +1,61 @@
 import React from 'react'
 import { render } from 'react-dom'
-import { Provider } from 'react-redux'
-import { applyMiddleware, compose, createStore } from 'redux'
+import { browserHistory, Route, Router } from 'react-router'
 
-// import app from './classic/base_src'
-// import app from './classic/entitiex_src'
-// import app from './classic/filtex_src'
-import app from './classic/transactionx_src'
+import classicUndressBaseProvider from './classic/undress/base'
+import classicUndressEntitiexProvider from './classic/undress/entitiex'
+import classicUndressFiltexProvider from './classic/undress/filtex'
+import classicUndressTransactionxProvider from './classic/undress/transactionx'
 
-// import app from './tags/base_src'
-// import app from './tags/entitiex_src'
-// import app from './tags/filtex_src'
-// import app from './tags/transactionx_src'
-
-const devToolsExtension = window.devToolsExtension
-? window.devToolsExtension()
-: null
-
-let store = createStore(
-  app.todoApp, app.sagaMiddleware
-  ? compose(applyMiddleware(app.sagaMiddleware), devToolsExtension)
-  : devToolsExtension
-)
-
-if (app.sagaMiddleware) {
-  app.sagaMiddleware.run(app.rootSaga)
+const MainApp = () => {
+  return (<div>
+    <div> ONTOLOGYX </div>
+    <div>
+      <div> classic </div>
+      <div>
+        <div>
+          <div> undress </div>
+          <div>
+            <div> base
+              <button onClick={() => window.location.pathname = '/classic/undress/base'}>
+                Go
+              </button>
+            </div>
+            <div> entitiex </div>
+            <div> filtex </div>
+            <div> transactionx </div>
+          </div>
+        </div>
+        <div>
+          <div> style </div>
+          <div>
+            <div> base </div>
+            <div> entitiex </div>
+            <div> filtex </div>
+            <div> transactionx </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div>
+      <div> tags </div>
+      <div>
+        <div> undress </div>
+        <div>
+          <div> base </div>
+        </div>
+      </div>
+    </div>
+  </div>)
 }
 
 render(
-  <Provider store={store}>
-    <app.App />
-  </Provider>,
+  <Router history={browserHistory} >
+    <Route path='/' component={MainApp} />
+    <Route path='/classic/undress/base' component={classicUndressBaseProvider} />
+    <Route path='/classic/undress/entitiex' component={classicUndressEntitiexProvider} />
+    <Route path='/classic/undress/filtex' component={classicUndressFiltexProvider} />
+    <Route path='/classic/undress/transactionx' component={classicUndressTransactionxProvider} />
+  </Router>,
   document.getElementById('root')
 )
