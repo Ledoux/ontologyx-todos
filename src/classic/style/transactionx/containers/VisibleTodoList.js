@@ -1,7 +1,5 @@
-import { fromPairs } from 'lodash'
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { _DELETE_ } from 'entitiex'
 import { getFilteredElements } from '../reducers/filtex'
 
 import TodoList from '../components/TodoList'
