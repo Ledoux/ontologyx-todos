@@ -3,7 +3,7 @@ import { CollectionSchema, SingleSchema } from 'entitiex'
 const todosById = new CollectionSchema('todo', {
   types: {
     completed: 'bool',
-    id: 'number',
+    id: 'string',
     text: 'string'
   },
   defaults: {
