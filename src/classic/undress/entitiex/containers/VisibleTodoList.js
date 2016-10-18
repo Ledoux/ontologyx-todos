@@ -1,3 +1,4 @@
+import { _DELETE_ } from 'entitiex'
 import { values } from 'lodash'
 import { connect } from 'react-redux'
 
@@ -25,7 +26,13 @@ const mapStateToProps = ({
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    onTodoToggleClick: (id, completed) => {
+    onDestroyTodoClick: (id) => {
+      dispatch({ type: 'DESTROY_TODO', entitiex: { unPatch: {
+        todosById: {
+          [id]: _DELETE_
+        }}}})
+    },
+    onToggleTodoClick: (id, completed) => {
       dispatch({ type: 'TOGGLE_TODO', entitiex: { patch: {
         todosById: {
           [id]: { completed: !completed }

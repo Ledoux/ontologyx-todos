@@ -11,7 +11,7 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    onTodoToggleClick: (id, completed) => {
+    onToggleTodoClick: (id, completed) => {
       dispatch({ type: 'TOGGLE_TODO', entitiex: { patch: {
         todosById: {
           [id]: { completed: !completed }

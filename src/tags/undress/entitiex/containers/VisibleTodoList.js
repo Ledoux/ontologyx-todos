@@ -1,5 +1,6 @@
+import { _DELETE_ } from 'entitiex'
+import { values } from 'lodash'
 import { connect } from 'react-redux'
-import { mergeIntoEntitiex } from 'entitiex'
 
 import TodoList from '../components/TodoList'
 
@@ -19,18 +20,23 @@ const mapStateToProps = ({
   visibilityFilter
 }) => {
   return {
-    todos: getVisibleTodos(todosById.values(), visibilityFilter)
+    todos: getVisibleTodos(values(todosById), visibilityFilter)
   }
 }
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    onTodoToggleClick: (id, completed) => {
-      dispatch(mergeIntoEntitiex({
+    onDestroyTodoClick: (id) => {
+      dispatch({ type: 'DESTROY_TODO', entitiex: { unPatch: {
+        todosById: {
+          [id]: _DELETE_
+        }}}})
+    },
+    onToggleTodoClick: (id, completed) => {
+      dispatch({ type: 'TOGGLE_TODO', entitiex: { patch: {
         todosById: {
           [id]: { completed: !completed }
-        }
-      }))
+        }}}})
     }
   }
 }

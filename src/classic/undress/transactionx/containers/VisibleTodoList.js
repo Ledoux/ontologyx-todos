@@ -29,7 +29,17 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
   return {
     dispatch,
-    onTodoToggleClick: (id, completed) => {
+    onDestroyTodoClick: (id, completed) => {
+      dispatch({
+        type: 'DESTROY_TODO',
+        transactionx: 'DELETE',
+        url: 'http://localhost:5000',
+        databaseName: 'ontologyx',
+        collectionName: 'todos',
+        query: { id }
+      })
+    },
+    onToggleTodoClick: (id, completed) => {
       dispatch({
         type: 'TOGGLE_TODO',
         transactionx: 'PUT',
@@ -38,16 +48,6 @@ const mapDispatchToProps = (dispatch) => {
         collectionName: 'todos',
         query: { id },
         update: { '$set': { completed: !completed } }
-      })
-    },
-    onTodoDeleteClick: (id, completed) => {
-      dispatch({
-        type: 'REMOVE_TODO',
-        transactionx: 'DELETE',
-        url: 'http://localhost:5000',
-        databaseName: 'ontologyx',
-        collectionName: 'todos',
-        query: { id }
       })
     }
   }

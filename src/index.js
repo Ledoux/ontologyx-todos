@@ -1,3 +1,7 @@
+// required just for webpack bundling
+require('../node_modules/todomvc-common/base.css')
+require('../node_modules/todomvc-app-css/index.css')
+
 import React from 'react'
 import { render } from 'react-dom'
 import { browserHistory, Route, Router } from 'react-router'
@@ -6,6 +10,13 @@ import classicUndressBaseProvider from './classic/undress/base'
 import classicUndressEntitiexProvider from './classic/undress/entitiex'
 import classicUndressFiltexProvider from './classic/undress/filtex'
 import classicUndressTransactionxProvider from './classic/undress/transactionx'
+
+import classicStyleBaseProvider from './classic/style/base'
+import classicStyleEntitiexProvider from './classic/style/entitiex'
+import classicStyleFiltexProvider from './classic/style/filtex'
+import classicStyleTransactionxProvider from './classic/style/transactionx'
+
+import tagsUndressEntitiexProvider from './tags/undress/entitiex'
 
 const MainApp = () => {
   return (<div>
@@ -56,6 +67,11 @@ render(
     <Route path='/classic/undress/entitiex' component={classicUndressEntitiexProvider} />
     <Route path='/classic/undress/filtex' component={classicUndressFiltexProvider} />
     <Route path='/classic/undress/transactionx' component={classicUndressTransactionxProvider} />
+    <Route path='/classic/style/base' component={classicStyleBaseProvider} />
+    <Route path='/classic/style/entitiex' component={classicStyleEntitiexProvider} />
+    <Route path='/classic/style/filtex' component={classicStyleFiltexProvider} />
+    <Route path='/classic/style/transactionx' component={classicStyleTransactionxProvider} />
+    <Route path='/tags/undress/entitiex' component={tagsUndressEntitiexProvider} />
   </Router>,
-  document.getElementById('root')
+  document.getElementsByClassName('todoapp')[0]
 )
