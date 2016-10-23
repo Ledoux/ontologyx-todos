@@ -3,7 +3,7 @@
 //
 import fs from 'fs'
 import path from 'path'
-import { getMongoDatabase } from 'transactionx-express'
+import { getMongoDatabase, getMongoObjectId } from 'transactionx-express'
 
 //
 // ENVIRONMENT
@@ -29,6 +29,12 @@ function resetDatabase () {
               // get the data
               const mockDataPath = path.join(jsonDataPath, jsonFileName)
               const mockData = JSON.parse(fs.readFileSync(mockDataPath, 'utf-8'))
+              // maybe the documents have already an id
+              mockData.forEach(mockDatum => {
+                if (mockDatum.id && typeof mockDatum._id === 'undefined') {
+                  mockDatum._id = getMongoObjectId(mockDatum.id)
+                }
+              })
               // get the collection check maybe that the table is already there, so we have to drop it
               const collection = db.collection(collectionName)
               if (collectionNames.indexOf(collectionName) > -1) {

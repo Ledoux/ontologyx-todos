@@ -17,6 +17,7 @@ import classicStyleFiltexProvider from './classic/style/filtex'
 import classicStyleTransactionxProvider from './classic/style/transactionx'
 
 import tagsUndressEntitiexProvider from './tags/undress/entitiex'
+import tagsStyleTransactionxProvider from './tags/style/transactionx'
 
 const MainApp = () => {
   return (<div>
@@ -72,6 +73,7 @@ render(
     <Route path='/classic/style/filtex' component={classicStyleFiltexProvider} />
     <Route path='/classic/style/transactionx' component={classicStyleTransactionxProvider} />
     <Route path='/tags/undress/entitiex' component={tagsUndressEntitiexProvider} />
+    <Route path='/tags/style/transactionx' component={tagsStyleTransactionxProvider} />
   </Router>,
   document.getElementsByClassName('todoapp')[0]
 )

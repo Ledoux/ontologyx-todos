@@ -17,6 +17,47 @@
       Learn how to configure a non-root public URL by running `npm run build`.
     -->
     <title>React App</title>
+
+    <style>
+
+      .text {
+        margin-right: 30px;
+      }
+
+      .tags-bar {
+        border-bottom: 1px solid #ededed;
+        padding-bottom: 10px;
+        position: absolute;
+        right: -350px;
+      }
+
+      .tag {
+        border: 2px solid;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 15px;
+        font-style: italic;
+        font-weight: bold;
+        margin-right: 3px;
+        padding: 5px;
+        width: 110px;
+      }
+
+      .tag-filled {
+        color: white;
+        overflow-y: auto;
+      }
+
+      .tag-empty {
+        color: grey;
+        background-color: white;
+        opacity: 0.1
+      }
+
+      .tag-input {
+        width: 100px;
+      }
+    </style>
   </head>
   <body>
     <section class="todoapp"></section>
