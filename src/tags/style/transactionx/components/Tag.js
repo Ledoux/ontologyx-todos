@@ -37,16 +37,17 @@ class Tag extends Component {
   _handleSubmit (event) {
     const val = this.state.editLabel.trim()
     this.props.onSave(val)
-    this.setState({editLabel: val, editing: false})
+    this.setState({editing: false})
   }
   render () {
-    const {
+    let {
       color,
       label
     } = this.props
     const {
       editing
     } = this.state
+    if (label.replace(/\s/g, '') === '') { label = EMPTY }
     const isEmpty = label === EMPTY
     if (editing) {
       return <input
@@ -60,7 +61,7 @@ class Tag extends Component {
     const isLabelCut = label.length > MAX_CHARACTERS_COUNT
     return (<button
       className={classnames('tag', { 'tag-filled': !isEmpty, 'tag-empty': isEmpty })}
-      style={{backgroundColor: color}}
+      style={{backgroundColor: isEmpty ? 'white' : color}}
       onDoubleClick={(event) => {
         const label = this.props.label
         event.preventDefault()
