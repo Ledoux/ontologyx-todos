@@ -70,7 +70,7 @@ class Tag extends Component {
           editing: true
         })
       }}
-      title={isLabelCut && label}
+      title={isLabelCut ? label : null}
     >
       {isLabelCut
         ? `${label.slice(0, MAX_CHARACTERS_COUNT)}...`
