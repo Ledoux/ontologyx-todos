@@ -1,4 +1,5 @@
 // required just for webpack bundling
+require('../node_modules/basscss/css/basscss.min.css')
 require('../node_modules/todomvc-common/base.css')
 require('../node_modules/todomvc-app-css/index.css')
 
@@ -18,6 +19,8 @@ import classicStyleTransactionxProvider from './classic/style/transactionx'
 
 import tagsUndressEntitiexProvider from './tags/undress/entitiex'
 import tagsStyleTransactionxProvider from './tags/style/transactionx'
+
+import membersStyleTransactionxProvider from './members/style/transactionx'
 
 const MainApp = () => {
   return (<div>
@@ -74,6 +77,7 @@ render(
     <Route path='/classic/style/transactionx' component={classicStyleTransactionxProvider} />
     <Route path='/tags/undress/entitiex' component={tagsUndressEntitiexProvider} />
     <Route path='/tags/style/transactionx' component={tagsStyleTransactionxProvider} />
+    <Route path='/members/style/transactionx' component={membersStyleTransactionxProvider} />
   </Router>,
   document.getElementsByClassName('todoapp')[0]
 )

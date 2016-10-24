@@ -3,14 +3,23 @@
     "completed": false,
     "id": "58069f7be1eea509953a580a",
     "lastPutDate": "2016-10-22T22:54:14.018Z",
+    "membersById": {
+      "5806a3788cea1b0cca4eb238": {
+        "color": "green",
+        "id": "5806a3788cea1b0cca4eb238",
+        "name": "Albert"
+      }
+    },
     "postedDate": "2016-10-22T22:54:14.018Z",
     "tagIds": ["5806a3788cea1b0cca4eb238", "5806a3888cea1b0cca4eb238"],
     "text": "buy some Quinoa"
+
   },
   {
     "completed": false,
     "id": "5806a1a2ce6a740cb17deee4",
     "lastPutDate": "2016-10-22T22:54:14.018Z",
+    "membersById": {},
     "postedDate": "2016-10-22T22:54:14.018Z",
     "tagIds": [],
     "text": "read Marx for good"
@@ -19,6 +28,18 @@
     "completed": true,
     "id": "5806a3688cea1b0cca4eb238",
     "lastPutDate": "2016-10-22T22:54:14.018Z",
+    "membersById": {
+      "5806a3788cea1b0cca4eb238": {
+        "color": "green",
+        "id": "5806a3788cea1b0cca4eb238",
+        "name": "Albert"
+      },
+      "5806a3988cea1b0cca4eb238": {
+        "color": "pink",
+        "id": "5806a3988cea1b0cca4eb238",
+        "name": "Simone"
+      }
+    },
     "postedDate": "2016-10-22T22:54:14.018Z",
     "tagIds": ["5806a3888cea1b0cca4eb238"],
     "text": "stop being hipster"
