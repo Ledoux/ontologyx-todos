@@ -26,68 +26,87 @@
         height: 100%;
       }
 
-      .todo {
-        height: 120px;
-      }
-
-      .todo-input {
-        width: 85%;
-        margin-left: 0;
+      .entities-list {
         margin-bottom: auto;
         margin-top: auto;
       }
 
-      .todo-label {
-        margin-left: 0;
-        margin-bottom: auto;
-        margin-top: auto;
+      .entity {
+        height: 35px;
       }
 
-      .items-list {
-        margin-bottom: auto;
-        margin-top: auto;
-      }
-
-      .items-list--completed {
-        opacity: 0.1;
-      }
-
-      .items-list-svg {
+      .entity-svg {
         margin: auto;
         height: 30px;
         width: 30px;
       }
 
-      .item {
+      .entity-content {
+        width: 70px;
+      }
+
+      .entity-content-ui {
         font-size: 15px;
         font-style: italic;
         font-weight: bold;
         border: 2px solid;
         border-radius: 5px;
-        padding: 2px;
         height: 100%;
         width: 100%;
       }
 
-      .item-button {
-        cursor: pointer;
-      }
-      .item-button:hover {
-        border: 2px solid black;
-      }
-
-      .item-button-filled {
+      .entity-content-ui-button-filled {
         color: white;
       }
 
-      .item-button-empty {
+      .entity-content-ui-button-empty {
         color: grey;
         opacity: 0.1
       }
 
-      .item-input {
+      .member-content-ui-input {
+        height: 90%;
         width: 90%;
       }
+
+      .tags-bar {
+        border-bottom: 1px solid #ededed;
+        padding-bottom: 10px;
+        position: absolute;
+        right: -350px;
+      }
+
+      .tag {
+        border: 2px solid;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 15px;
+        font-style: italic;
+        font-weight: bold;
+        margin-right: 3px;
+        padding: 5px;
+        width: 110px;
+      }
+
+      /*
+      .tag:hover {
+        border: 2px solid black;
+      }
+      */
+
+      .tag-filled {
+        color: white;
+      }
+
+      .tag-empty {
+        color: grey;
+        opacity: 0.1
+      }
+
+      .tag-input {
+        width: 100px;
+      }
+
     </style>
   </head>
   <body>

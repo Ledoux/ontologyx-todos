@@ -2,7 +2,7 @@
 export const ESCAPE_KEY = 27
 export const ENTER_KEY = 13
 export const MAX_MEMBERS_COUNT = 3
-export const MAX_ENTITIES_COUNT = 2
+export const MAX_ENTITIES_COUNT = 3
 export const MAX_TAGS_COUNT = 3
 
 export function uuid () {

@@ -50,7 +50,8 @@
     "watch-filtex": "cd ../filtex && npm run watch",
     "watch-transactionx-client": "cd ../transactionx-client && npm run watch",
     "watch-transactionx-express": "cd ../transactionx-express && npm run watch",
-    "watch-all": "ttab npm run watch-entitiex && ttab npm run watch-filtex && ttab npm run watch-transactionx-client && ttab npm run watch-transactionx-express",
+    "watch-docx": "cd ../docx && npm run watch",
+    "watch-all": "ttab npm run watch-entitiex && ttab npm run watch-filtex && ttab npm run watch-transactionx-client && ttab npm run watch-transactionx-express && ttab npm run watch-docx",
     "serve": "nodemon server/index.js --exec babel-node --watch server --watch ../transactionx-express/lib --presets es2015,stage-3"
   }
 }

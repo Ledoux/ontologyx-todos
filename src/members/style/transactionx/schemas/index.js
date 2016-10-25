@@ -2,10 +2,12 @@ import { CollectionSchema, SingleSchema } from 'entitiex'
 
 const membersById = new CollectionSchema('member', {
   types: {
+    color: 'string',
     id: 'string',
-    label: 'string'
+    name: 'string'
   },
   defaults: {
+    color: null,
     id: null,
     name: null
   }
@@ -13,10 +15,12 @@ const membersById = new CollectionSchema('member', {
 
 const tagsById = new CollectionSchema('tag', {
   types: {
+    color: 'string',
     id: 'string',
     label: 'string'
   },
   defaults: {
+    color: null,
     id: null,
     label: null
   }

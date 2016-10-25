@@ -2,10 +2,8 @@ import classnames from 'classnames'
 import React, { Component, PropTypes } from 'react'
 import ReactDOM from 'react-dom'
 
-// import TodoMembersBar from '../containers/TodoMembersBar'
 import TodoMembersList from '../containers/TodoMembersList'
 import TodoTagsList from '../containers/TodoTagsList'
-// import TodoTagsBar from '../containers/TodoTagsBar'
 import { ESCAPE_KEY, ENTER_KEY } from '../utils'
 
 class Todo extends Component {
@@ -59,13 +57,10 @@ class Todo extends Component {
     const memberIds = Object.keys(membersById)
     // editing = true
     return (<li
-      className={classnames({
+      className={classnames('todo', {
         completed: completed,
         editing: editing
       })}
-      style={{
-        height: '120px'
-      }}
     >
       <div className='col col-1 full-column'>
         <input
@@ -75,44 +70,27 @@ class Todo extends Component {
           onChange={onToggle}
         />
       </div>
-      <div className='col col-6 flex full-column' style={{
-        overflow: 'auto'
-      }}>
+      <div className='col col-6 flex full-column'>
         {
           editing
           ? <input
           ref='editField'
-          className='edit'
-          style={{
-            width: '85%',
-            marginLeft: '0px',
-            marginBottom: 'auto',
-            marginTop: 'auto'
-            // margin: 0,
-            // padding: 0,
-            // height: '100px',
-            // textOverflow: 'ellipsis'
-          }}
+          className='edit todo-input'
           value={this.state.editText}
           onBlur={this.handleSubmit}
           onChange={this.handleChange}
           onKeyDown={this.handleKeyDown} />
           : (<label
+            className='todo-label'
             onDoubleClick={this.handleEdit}
-            style={{
-              marginLeft: '0px',
-              marginBottom: 'auto',
-              marginTop: 'auto'
-            }}
           >
             {text}
           </label>)
         }
       </div>
-      <div className='col col-2 flex full-column' style={{
-        overflow: 'auto'
-      }}>
+      <div className='col col-2 flex full-column'>
         <TodoMembersList
+          extraClass={classnames({'entities-list--completed': completed})}
           icon='member'
           todoId={id}
           memberIds={memberIds}
@@ -121,16 +99,19 @@ class Todo extends Component {
       </div>
       <div className='col col-2 flex full-column'>
         <TodoTagsList
+          extraClass={classnames({'entities-list--completed': completed})}
           icon='tag'
           todoId={id}
           tagIds={tagIds}
           textKey='label'
         />
       </div>
-      <div className='col col-1'>
+      <div className='col col-1 full-column'>
         <button
           className='destroy'
-          style={{top: 0, marginBottom: 'auto'}}
+          style={{
+            marginBottom: 'auto'
+          }}
           onClick={onDestroy}
         />
       </div>
