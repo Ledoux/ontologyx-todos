@@ -22,6 +22,8 @@ import tagsStyleTransactionxProvider from './tags/style/transactionx'
 
 import membersStyleTransactionxProvider from './members/style/transactionx'
 
+import itemsStyleTransactionxProvider from './items/style/transactionx'
+
 const MainApp = () => {
   return (<div>
     <div> ONTOLOGYX </div>
@@ -78,6 +80,7 @@ render(
     <Route path='/tags/undress/entitiex' component={tagsUndressEntitiexProvider} />
     <Route path='/tags/style/transactionx' component={tagsStyleTransactionxProvider} />
     <Route path='/members/style/transactionx' component={membersStyleTransactionxProvider} />
+    <Route path='/items/style/transactionx' component={itemsStyleTransactionxProvider} />
   </Router>,
   document.getElementsByClassName('todoapp')[0]
 )

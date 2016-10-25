@@ -9,7 +9,9 @@
     "entitiex": "0.0.1",
     "enzyme": "^2.4.1",
     "filtex": "0.0.1",
+    "lodash": "^4.11.2",
     "nodemon": "^1.11.0",
+    "pluralize": "3.0.0",
     "react-addons-test-utils": "^15.3.0",
     "react-scripts": "^0.6.0",
     "svg-sprite": "^1.3.3",
@@ -37,21 +39,12 @@
     "build": "react-scripts build",
     "console": "babel-node server/utils/consoleDatabase.js --presets es2015,stage-3",
     "eject": "react-scripts eject",
-    "kill": "killall -15 mongod",
-    "link": "npm link ../entitiex && npm link ../filtex && npm link ../transactionx-client && npm link transactionx-express",
-    "mongo": "mongod --dbpath data/mongodb_data",
-    "dev": "ttab exec npm run start && ttab exec npm run watch-all && ttab exec npm run serve && ttab exec npm run mongo",
     "postinstall": "npm run sprite-icons",
     "reset": "babel-node server/utils/resetDatabase.js --presets es2015,stage-3",
     "sprite-icons": "node_modules/svg-sprite/bin/svg-sprite.js -d --di --defs-dest=public/ --ds _svgs.html icons/*.svg",
     "start": "react-scripts start",
     "test": "react-scripts test --env=jsdom",
-    "watch-entitiex": "cd ../entitiex && npm run watch",
-    "watch-filtex": "cd ../filtex && npm run watch",
-    "watch-transactionx-client": "cd ../transactionx-client && npm run watch",
-    "watch-transactionx-express": "cd ../transactionx-express && npm run watch",
-    "watch-docx": "cd ../docx && npm run watch",
-    "watch-all": "ttab npm run watch-entitiex && ttab npm run watch-filtex && ttab npm run watch-transactionx-client && ttab npm run watch-transactionx-express && ttab npm run watch-docx",
-    "serve": "nodemon server/index.js --exec babel-node --watch server --watch ../transactionx-express/lib --presets es2015,stage-3"
+    "serve-dev": "nodemon server/index.js --exec babel-node --watch server --watch ../transactionx-express/lib --presets es2015,stage-3",
+    "serve-prod": "node server/index.js"
   }
 }

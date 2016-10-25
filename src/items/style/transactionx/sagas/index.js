@@ -7,8 +7,7 @@ import {
   transactionxSagas
 } from 'transactionx-client'
 
-import * as membersSagas from './members'
-import * as tagsSagas from './tags'
+import * as itemsSagas from './items'
 
 //
 // ROOT
@@ -16,7 +15,6 @@ import * as tagsSagas from './tags'
 export default function * rootSaga () {
   yield [
     ...getSagasFromImportObject(transactionxSagas),
-    ...getSagasFromImportObject(membersSagas),
-    ...getSagasFromImportObject(tagsSagas)
+    ...getSagasFromImportObject(itemsSagas)
   ].map(fork)
 }

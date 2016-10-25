@@ -1,7 +1,6 @@
 import { range } from 'lodash'
-import { call, put, select } from 'redux-saga/effects'
+import { put, select } from 'redux-saga/effects'
 import { takeEvery } from 'redux-saga'
-import { transactionxSagas } from 'transactionx-client'
 
 import { getFilteredElements } from '../reducers/filtex'
 import { MAX_ENTITIES_COUNT, getRandomColor, uuid } from '../utils'
@@ -26,19 +25,6 @@ function * setMemberInTodoData (action) {
     updatedMemberIds[memberIndex] = matchedMember.id
     updatedMember = matchedMember
   } else {
-    /*
-    // Note that we don't use an action here with the put generator
-    // we need to stay here waiting for the yield to give in the callback
-    // the id of the new posted member
-    let { documents } = yield call(transactionxSagas.postTransactionxData, {
-      transactionx: 'POST',
-      url: 'http://localhost:5000',
-      databaseName: 'ontologyx',
-      collectionName: 'members',
-      documents: [{ name, color: getRandomColor() }]
-    })
-    updatedMemberIds[memberIndex] = documents[0].id
-    */
     updatedMemberIds[memberIndex] = uuid()
 
     updatedMember = yield select(

@@ -18,7 +18,7 @@ const filtexReducer = createReducer({initialState,
       case 'ACTIVE':
         return elements.filter(element => !element.completed)
       default:
-        return []
+        return true
     }
   }}
 )
